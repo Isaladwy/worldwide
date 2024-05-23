@@ -2,7 +2,7 @@
 .cityItem:link,
 .cityItem:visited {
   display: flex;
-  gap: 1.6rem;
+  gap: 1rem;
   align-items: center;
 
   background-color: var(--color-dark--2);
@@ -32,6 +32,7 @@
 }
 
 .date {
+  padding-left: 5rem;
   font-size: 1.5rem;
 }
 
