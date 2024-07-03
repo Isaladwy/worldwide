@@ -15,6 +15,7 @@ function reducer(state, action) {
   switch (action.type) {
     case 'loading':
       return { ...state, isLoading: true };
+
     case 'cities/loaded':
       return {
         ...state,
@@ -24,6 +25,7 @@ function reducer(state, action) {
 
     case 'city/loaded':
       return { ...state, isLoading: false, currentCity: action.payload };
+
     case 'city/created':
       return {
         ...state,
@@ -53,7 +55,6 @@ function CitiesProvider({ children }) {
   const [state, dispatch, error] = useReducer(reducer, initialState);
   const { cities, isLoading, currentCity } = state;
 
-
   useEffect(
     function () {
       async function fetchCities() {
@@ -75,7 +76,7 @@ function CitiesProvider({ children }) {
   );
 
   async function getCity(id) {
-    if (+id === currentCity.id) return;
+    if (id === currentCity.id) return;
 
     dispatch({ type: 'loading' });
 
